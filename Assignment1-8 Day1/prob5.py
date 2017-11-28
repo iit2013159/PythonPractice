@@ -1,0 +1,9 @@
+count = 1
+fib0 = 0
+fib1 = 1
+while(count <= 20):
+    fib2 = fib0+ fib1
+    fib0 = fib1
+    fib1 = fib2
+    print("Fibonacci number ",count," = ",fib2)
+    count += 1
