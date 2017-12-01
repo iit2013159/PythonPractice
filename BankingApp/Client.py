@@ -13,10 +13,10 @@ def addAccount():
         numOfAccount -= 1
 
 def transferMoney():
-    fromAccount = input("Please enter sender A/C number")
+    fromAccount = int(input("Please enter sender A/C number"))
     money = input("How much amount")
-    print(newService.accountList.values())
-    toAccount = input("Please Enter reciever A/C number")
+    print(newService.accountList.get(fromAccount))
+    toAccount = int(input("Please Enter reciever A/C number"))
 
 def takeInput():
     return input("Chooose :\n 1.Add Account \n 2. Transfer money\n 3. Debit Money \n 4.Add Money \n5.Exit")
