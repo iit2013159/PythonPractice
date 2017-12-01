@@ -1,5 +1,5 @@
 import Student as s
-
+import Batch as b
 class StudentScheduler:
     def __init__(self):
         self.listStudent = list()
@@ -13,8 +13,8 @@ class StudentScheduler:
         newStudent.setName(name)
         newStudent.setRollNumber(roll)
         self.listStudent.append(newStudent)
-        self.addStudentToBatch(newStudent) #automatically asssign into a batch depending on courses opted
-        return 0
+        #self.addStudentToBatch(newStudent) #automatically asssign into a batch depending on courses opted
+        return newStudent
 
     def addBatch(self,newBatch):
         self.listBatch.append(newBatch)
@@ -26,10 +26,18 @@ class StudentScheduler:
         return self.listBatch
 
     def addStudentToBatch(self,student):
-        batchlist = self.getAllBatch()
-        for i in range(0,batchlist.__len__()):
-            listCourseStudent = student.getCouses()
-            for j in range(0,listCourseStudent.__len__()):
-                if(listCourseStudent[j] == batchlist[i].courseName):
-                    batchlist[i].addStudent(student)
+
+        listCourseStudent = student.getCouses()
+        for i in range(0,listCourseStudent.__len__()):
+            batchlist = self.getAllBatch()
+            noBatch = 0
+            for j in range(0,batchlist.__len__()):
+                if(listCourseStudent[i] == batchlist[j].courseName):
+                    batchlist[j].addStudent(student)
+                    noBatch = 1
+            if(noBatch == 0):
+                newBatch = b.Batch()
+                newBatch.courseName = listCourseStudent[i]
+                self.listBatch.append(newBatch)
+                i -= 1
 
