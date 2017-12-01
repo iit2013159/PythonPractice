@@ -1,14 +1,19 @@
 import StudentScheduler as s
+
+
 def takeInput():
-    return input("Chooose :\n 1.addStudent \n 2. ViewAllStudent \n 3. studentDetails By roll \n 4.BatchDetails by bid \n 5.Exit")
+    return input(
+        "Chooose :\n 1.addStudent \n 2. ViewAllStudent \n 3. studentDetails By roll \n 4.BatchDetails by bid \n 5.Exit")
+
+
 def fun1():
     numOfStud = input("Enter how many Student")
-    for i in range(0,(int)(numOfStud)):
+    for i in range(0, (int)(numOfStud)):
         name = input("Enter name of Student")
         roll = input("Enter roll of Student")
 
-        res =newScheduler.addStudent(name, roll)
-        if(res == 0):
+        res = newScheduler.addStudent(name, roll)
+        if (res == 0):
             print("Roll number already Exist")
         else:
             noOfCourse = int(input("How many Courses"))
@@ -19,27 +24,30 @@ def fun1():
             print("Student inserted succesfull")
             print(res)
 
+
 def fun2():
     listStudn = newScheduler.showAllStudents()
     for it in range(0, listStudn.__len__()):
         print("Name : ", listStudn[it].name, " Roll : ", listStudn[it].rollNumber)
+
+
 newScheduler = s.StudentScheduler()
 menuOption = takeInput()
-while(menuOption != "5"):
-    if(menuOption == "1"):
+while (menuOption != "5"):
+    if (menuOption == "1"):
         fun1()
         menuOption = takeInput()
-    elif(menuOption == "2"):
+    elif (menuOption == "2"):
         fun2()
         menuOption = takeInput()
-    elif(menuOption == "3"):
+    elif (menuOption == "3"):
         roll = input("Please enter the roll of student")
-        for i in range(0,newScheduler.listStudent.__len__()):
-            if(newScheduler.listStudent[i].rollNumber == roll):
-                print (newScheduler.listStudent[i])
+        for i in range(0, newScheduler.listStudent.__len__()):
+            if (newScheduler.listStudent[i].rollNumber == roll):
+                print(newScheduler.listStudent[i])
         menuOption = takeInput()
     elif (menuOption == "4"):
-        for i in range(0,newScheduler.listBatch.__len__()):
+        for i in range(0, newScheduler.listBatch.__len__()):
             print(newScheduler.listBatch[i])
         menuOption = takeInput()
     else:
