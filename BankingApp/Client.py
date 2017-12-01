@@ -15,8 +15,11 @@ def addAccount():
 def transferMoney():
     fromAccount = int(input("Please enter sender A/C number"))
     money = input("How much amount")
-    print(newService.accountList.get(fromAccount))
+    bal = newService.accountList.get(fromAccount).get("balance")
+    if(bal < money):
+        print("Low Balance Not possible")
     toAccount = int(input("Please Enter reciever A/C number"))
+
 
 def takeInput():
     return input("Chooose :\n 1.Add Account \n 2. Transfer money\n 3. Debit Money \n 4.Add Money \n5.Exit")
